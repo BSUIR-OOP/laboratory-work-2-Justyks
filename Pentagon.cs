@@ -9,18 +9,32 @@ namespace OOTPISP1
 {
     internal class Pentagon : Figure
     {
-        public Graphics graphic;
+        Point a;
+        Point b;
+        Point c;
+        Point d;
+        Point e;
+        int[] coordinates = new int[4];
         public Pentagon(int x1, int y1, int x2, int y2) : base(x1, y1, x2, y2)
         {
+            this.coordinates[0] = x1;
+            this.coordinates[1] = y1;
+            this.coordinates[2] = x2;
+            this.coordinates[3] = y2;
         }
         public Pentagon(int x1, int y1, int x2, int y2, Graphics graphic) : base(x1, y1, x2, y2)
         {
-            this.graphic = graphic;
+         
         }
-        public override void Draw()
+        public override void Draw(Graphics graphic, Pen pen)
         {
-            DrawFig draw = new DrawFig(x1, y1, x2, y2, graphic);
-            draw.PrintFigure(new DrawPentagon());
+            DrawFig draw = new DrawFig();
+            draw.DrawLineFig((coordinates[2] + coordinates[0]) / 2, coordinates[3], coordinates[0], (coordinates[1] + coordinates[3]) / 2, graphic, pen);
+            draw.DrawLineFig(coordinates[0], (coordinates[1] + coordinates[3]) / 2, coordinates[0] + (coordinates[2] - coordinates[0]) / 3, coordinates[1], graphic, pen);
+            draw.DrawLineFig(coordinates[0] + (coordinates[2] - coordinates[0]) / 3, coordinates[1], coordinates[0] + (coordinates[2] - coordinates[0]) * 2 / 3, coordinates[1], graphic, pen);
+            draw.DrawLineFig(coordinates[0] + (coordinates[2] - coordinates[0]) * 2 / 3, coordinates[1], coordinates[2], (coordinates[1] + coordinates[3]) / 2, graphic, pen);
+            draw.DrawLineFig(coordinates[2], (coordinates[1] + coordinates[3]) / 2, (coordinates[2] + coordinates[0]) / 2, coordinates[3], graphic, pen);
+
         }
     }
 }

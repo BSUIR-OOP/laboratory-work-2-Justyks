@@ -51,9 +51,9 @@ namespace OOTPISP1
             this.figureName= figureName.Remove(0,9);
 
         }
-        public virtual void Draw()
+        public virtual void Draw(Graphics graphic,Pen pen)
         {
-            Console.WriteLine(getFigureName() + "(" + getX1() + ", " + getY1() + ", " + getX2() + ", " + getY2() + ") ");
+            
         }
     }
 }

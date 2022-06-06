@@ -18,16 +18,16 @@ namespace OOTPISP1
             new Triangle(16,17,18,19),
             new Rectangle(17,18,19,20)
         };
-        public FigureList(int x1, int y1, int x2, int y2, Graphics graphics)
+        public FigureList(int x1, int y1, int x2, int y2)
         {
             list = new List<Figure>()
             {
-                new Trapezium(x1, y1, x2, y2, graphics),
-                new Pentagon(x1, y1, x2, y2, graphics),
-                new Rhombus(x1, y1, x2, y2, graphics),
-                new Square(x1, y1, x2, y2, graphics),
-                new Triangle(x1, y1, x2, y2, graphics),
-                new Rectangle(x1, y1, x2, y2, graphics),
+                new Trapezium(x1, y1, x2, y2),
+                new Pentagon(x1, y1, x2, y2),
+                new Rhombus(x1, y1, x2, y2),
+                new Square(x1, y1, x2, y2),
+                new Triangle(x1, y1, x2, y2),
+                new Rectangle(x1, y1, x2, y2),
             };
         }
     }

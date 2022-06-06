@@ -17,11 +17,12 @@ namespace OOTPISP1
         Graphics graphic;
         int figureName;
         int i = 0;
+        Pen pen = new Pen(Color.FromArgb(255, 0, 0, 0), 3);
+        
         public Form1()
         {
             InitializeComponent();
             graphic = CreateGraphics();
-
             int top = 10;
             int left = 10;
             foreach (Figure figure in FigureList.listIn)
@@ -62,19 +63,17 @@ namespace OOTPISP1
             graphic.Clear(DefaultBackColor);
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void Form1_MouseUp_1(object sender, MouseEventArgs e)
         {
-            FigureList figureList = new FigureList(x1, y1, e.X, e.Y, graphic);
+            FigureList figureList = new FigureList(x1, y1, e.X, e.Y);
             foreach (Figure figure in figureList.list)
             {
                 if (figureList.list.IndexOf(figure) == figureName)
                 {
-                    figure.Draw();
+                   
+                    figure.Draw(graphic,pen);
                 }
             }
         }
